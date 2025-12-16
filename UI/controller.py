@@ -10,6 +10,11 @@ class Controller:
     def handle_graph(self, e):
         """ Handler per gestire creazione del grafo """""
         # TODO
+        nodi, achi,minimo, massimo =self._model.crea_grafo()
+        self._view.lista_visualizzazione_1.controls.append(ft.Text(f"Numero di vertici:{nodi} Numero di archi: {achi}"))
+        self._view.lista_visualizzazione_1.controls.append(ft.Text(f"valore minimo:{minimo} valore massimo: {massimo}"))
+        self._view.page.update()
+
 
     def handle_conta_edges(self, e):
         """ Handler per gestire il conteggio degli archi """""
