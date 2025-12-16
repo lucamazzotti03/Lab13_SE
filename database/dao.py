@@ -5,24 +5,6 @@ from model.interazione import Interazione
 
 class DAO:
 
-    @staticmethod
-    def query_esempio():
-        conn = DBConnect.get_connection()
-
-        result = []
-
-        cursor = conn.cursor(dictionary=True)
-        query = """ SELECT * FROM esempio """
-
-        cursor.execute(query)
-
-        for row in cursor:
-            result.append(row)
-
-        cursor.close()
-        conn.close()
-        return result
-
 
     @staticmethod
     def get_interazioni():
@@ -46,8 +28,7 @@ class DAO:
         conn = DBConnect.get_connection()
         result = []
         cursor = conn.cursor(dictionary=True)
-        query = """SELECT * \
-                   FROM gene"""
+        query = """SELECT * FROM gene where cromosoma > 0"""
 
         cursor.execute(query)
 
